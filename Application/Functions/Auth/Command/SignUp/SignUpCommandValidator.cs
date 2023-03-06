@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Functions.Auth.Command.SignIn
+namespace Application.Functions.Auth.Command.SignUp
 {
-    public class SignInCommandValidator : AbstractValidator<SignInCommand>
+    public class SignUpCommandValidator : AbstractValidator<SignUpCommand>
     {
-        public SignInCommandValidator()
+        public SignUpCommandValidator()
         {
             RuleFor(x => x.Email)
                 .EmailAddress()
@@ -19,7 +19,9 @@ namespace Application.Functions.Auth.Command.SignIn
 
             RuleFor(x => x.Password)
                 .NotEmpty()
-                .WithMessage("Musisz podać hasło");
+                .WithMessage("Musisz podać hasło")
+                .MinimumLength(8)
+                .WithMessage("Hasło musi zawierać 8 znaków");
         }
     }
 }

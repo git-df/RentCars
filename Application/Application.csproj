@@ -22,7 +22,6 @@
 
   <ItemGroup>
     <Folder Include="Functions\Auth\Command\SignOut\" />
-    <Folder Include="Functions\Auth\Command\SignUp\" />
   </ItemGroup>
 
 </Project>

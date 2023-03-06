@@ -1,12 +1,15 @@
 ﻿using Application.Functions.Auth.Command.SignIn;
-using Application.Responses;
+using Application.Functions.Auth.Command.SignUp;
 using MediatR;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class AuthController : ControllerBase
     {
@@ -17,9 +20,27 @@ namespace Api.Controllers
             _mediator = mediator;
         }
 
-        public async Task<ActionResult<BaseResponse<string>>> SignIn([FromBody] string email, [FromBody] string password)
+        [AllowAnonymous]
+        [HttpPost]
+        public async Task<IActionResult> SignIn([FromBody] SignInCommand request)
         {
-            return Ok(await _mediator.Send(new SignInCommand() { Email = email, Password = password }));
+            return Ok(await _mediator.Send(request));
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        public async Task<IActionResult> SignUp([FromBody] SignUpCommand request)
+        {
+            return Ok(await _mediator.Send(request));
+        }
+
+        [Authorize]
+        [HttpGet]
+        public async Task<IActionResult> SignOut()
+        {
+            Response.Headers.Remove("Authorization");
+
+            return Ok();
         }
     }
 }

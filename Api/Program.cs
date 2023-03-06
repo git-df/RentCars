@@ -9,15 +9,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddApplication();
+builder.Services.AddApplication(builder.Configuration);
 builder.Services.AddPersistence(builder.Configuration);
-
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("Open",
-        builder => builder.AllowAnyOrigin()
-        .AllowAnyHeader().AllowAnyMethod());
-});
 
 var app = builder.Build();
 

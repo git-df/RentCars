@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Application.Functions.Users.Queries.GetUserInfo
 {
-    public class GetUserInfoQuery : IRequest<BaseResponse<UserInfoViewModel>>
+    public class GetUserInfoQuery : IRequest<BaseResponse<GetUserInfoQueryViewModel>>
     {
         public int Id { get; set; }
     }

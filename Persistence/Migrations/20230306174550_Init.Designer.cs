@@ -12,7 +12,7 @@ using Persistence.Data;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(RentCarsDbContext))]
-    [Migration("20230305190450_Init")]
+    [Migration("20230306174550_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -61,7 +61,7 @@ namespace Persistence.Migrations
                         .IsUnique()
                         .HasFilter("[PersonalDataId] IS NOT NULL");
 
-                    b.ToTable("applicationUsers");
+                    b.ToTable("ApplicationUsers");
                 });
 
             modelBuilder.Entity("Domain.Entities.Branch", b =>

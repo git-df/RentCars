@@ -1,4 +1,5 @@
-﻿using Application.Functions.Users.Queries.GetUserInfo;
+﻿using Application.Functions.Auth.Command.SignUp;
+using Application.Functions.Users.Queries.GetUserInfo;
 using AutoMapper;
 using Domain.Entities;
 using System;
@@ -13,9 +14,11 @@ namespace Application.Mapper
     {
         public MappingProfile() 
         {
-            CreateMap<PersonalData, PersonalDataInUserInfoViewModel>();
-            CreateMap<Employee,  EmployeeInUserInfoViewModel>();
-            CreateMap<ApplicationUser, UserInfoViewModel>();
+            CreateMap<PersonalData, PersonalDataInGetUserInfoQueryViewModel>();
+            CreateMap<PersonalDataInSignUpCommand, PersonalData>();
+            CreateMap<Employee,  EmployeeInGetUserInfoQueryViewModel>();
+            CreateMap<ApplicationUser, GetUserInfoQueryViewModel>();
+            CreateMap<SignUpCommand, ApplicationUser>();
         }
     }
 }

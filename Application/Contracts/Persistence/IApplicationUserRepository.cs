@@ -9,7 +9,7 @@ namespace Application.Contracts.Persistence
 {
     public interface IApplicationUserRepository : IAsyncRepository<ApplicationUser>
     {
-        Task<ApplicationUser> GetWithPersonalDataAndAddressAsync(int id);
+        Task<ApplicationUser> GetById(int id);
         Task<ApplicationUser> GetByEmail(string email);
     }
 }

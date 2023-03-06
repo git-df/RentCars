@@ -72,7 +72,7 @@ namespace Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "applicationUsers",
+                name: "ApplicationUsers",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -85,29 +85,29 @@ namespace Persistence.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_applicationUsers", x => x.Id);
+                    table.PrimaryKey("PK_ApplicationUsers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_applicationUsers_Employees_EmployeeId",
+                        name: "FK_ApplicationUsers_Employees_EmployeeId",
                         column: x => x.EmployeeId,
                         principalTable: "Employees",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_applicationUsers_PersonalDatas_PersonalDataId",
+                        name: "FK_ApplicationUsers_PersonalDatas_PersonalDataId",
                         column: x => x.PersonalDataId,
                         principalTable: "PersonalDatas",
                         principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_applicationUsers_EmployeeId",
-                table: "applicationUsers",
+                name: "IX_ApplicationUsers_EmployeeId",
+                table: "ApplicationUsers",
                 column: "EmployeeId",
                 unique: true,
                 filter: "[EmployeeId] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_applicationUsers_PersonalDataId",
-                table: "applicationUsers",
+                name: "IX_ApplicationUsers_PersonalDataId",
+                table: "ApplicationUsers",
                 column: "PersonalDataId",
                 unique: true,
                 filter: "[PersonalDataId] IS NOT NULL");
@@ -122,7 +122,7 @@ namespace Persistence.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "applicationUsers");
+                name: "ApplicationUsers");
 
             migrationBuilder.DropTable(
                 name: "Employees");

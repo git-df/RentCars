@@ -16,14 +16,14 @@ namespace Persistence.Repositories
         {
         }
 
-        public async Task<ApplicationUser> GetByEmail(string email)
+        public async Task<ApplicationUser?> GetByEmail(string email)
         {
-            return await _context.applicationUsers.Include(a => a.Employee).AsNoTracking().FirstOrDefaultAsync(a => a.Email == email);
+            return await _context.ApplicationUsers.Include(a => a.PersonalData).Include(a => a.Employee).AsNoTracking().FirstOrDefaultAsync(a => a.Email == email);
         }
 
-        public async Task<ApplicationUser> GetWithPersonalDataAndAddressAsync(int id)
+        public async Task<ApplicationUser?> GetById(int id)
         {
-            return await _context.applicationUsers.Include(a => a.PersonalData).Include(a => a.Employee).AsNoTracking().FirstOrDefaultAsync(a => a.Id == id);
+            return await _context.ApplicationUsers.Include(a => a.PersonalData).Include(a => a.Employee).AsNoTracking().FirstOrDefaultAsync(a => a.Id == id);
         }
     }
 }
