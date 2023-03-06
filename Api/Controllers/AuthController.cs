@@ -33,14 +33,5 @@ namespace Api.Controllers
         {
             return Ok(await _mediator.Send(request));
         }
-
-        [Authorize]
-        [HttpGet]
-        public async Task<IActionResult> SignOut()
-        {
-            Response.Headers.Remove("Authorization");
-
-            return Ok();
-        }
     }
 }
