@@ -1,4 +1,5 @@
 ﻿using Application.Contracts.Persistence;
+using Application.Functions.Auth.Command;
 using Application.Responses;
 using AutoMapper;
 using MediatR;

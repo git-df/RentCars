@@ -34,7 +34,7 @@ namespace Persistence.Repositories
 
         public async Task<List<T>> GetAllAsync()
         {
-            return await _context.Set<T>().ToListAsync();
+            return await _context.Set<T>().AsNoTracking().ToListAsync();
         }
 
         public async Task<T> GetByIdAsync(int id)
