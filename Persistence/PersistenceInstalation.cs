@@ -23,6 +23,16 @@ namespace Persistence
 
             services.AddScoped(typeof(IAsyncRepository<>), typeof(AsyncRepository<>));
             services.AddScoped<IApplicationUserRepository, ApplicationUserRepository>();
+            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            services.AddScoped<IPersonalDataRepository, PersonalDataRepository>();
+            services.AddScoped<IRentRepository, RentRepository>();
+            services.AddScoped<IPaymentRepository, PaymentRepository>();
+            services.AddScoped<ICarRepository, CarRepository>();
+            services.AddScoped<IOfferRepository, OfferRepository>();
+            services.AddScoped<IBranchRepository, BranchRepository>();
+            services.AddScoped<IBranchEmployeeRepository, BranchEmployeeRepository>();
+            services.AddScoped<IModelOfCarsRepository, ModelOfCarsRepository>();
+            services.AddScoped<ICarAttributeRepository, CarAttributeRepository>();
 
             return services;
         }
