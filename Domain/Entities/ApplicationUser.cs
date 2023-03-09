@@ -14,9 +14,11 @@ namespace Domain.Entities
         public string Salt { get; set; } = string.Empty;
 
         public int? PersonalDataId { get; set; }
-        public PersonalData? PersonalData { get; set; }
+        public PersonalData PersonalData { get; set; } = new PersonalData();
 
         public int? EmployeeId { get; set; }
-        public Employee? Employee { get; set; }
+        public Employee Employee { get; set; } = new Employee();
+
+        public List<Rent> Rents { get; set; } = new List<Rent>();
     }
 }

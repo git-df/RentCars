@@ -13,7 +13,6 @@ namespace Domain.Entities
 
         public ApplicationUser ApplicationUser { get; set; } = new ApplicationUser();
 
-        public int? BranchId { get; set; }
-        public Branch? Branch { get; set; }
+        public List<BranchEmployee> BranchEmployees { get; set; } = new List<BranchEmployee>();
     }
 }
