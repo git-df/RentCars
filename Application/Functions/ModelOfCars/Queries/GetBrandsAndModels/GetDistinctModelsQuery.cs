@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Functions.Users.Queries.GetUserInfo
+namespace Application.Functions.ModelOfCars.Queries.GetBrandsAndModels
 {
-    public class GetUserInfoQuery : IRequest<BaseResponse<GetUserInfoQueryVM>>
+    public class GetDistinctModelsQuery : IRequest<BaseResponse<List<GetDistinctModelsQueryVM>>>
     {
-        public int Id { get; set; }
+
     }
 }

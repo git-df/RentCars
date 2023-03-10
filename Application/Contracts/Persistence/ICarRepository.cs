@@ -9,5 +9,6 @@ namespace Application.Contracts.Persistence
 {
     public interface ICarRepository : IAsyncRepository<Car>
     {
+        Task<List<Car>> GetByModel(string brandName = null, string modelName = null);
     }
 }

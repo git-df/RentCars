@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace Application.Functions.Users.Queries.GetUserInfo
 {
-    public class GetUserInfoQueryHandler : IRequestHandler<GetUserInfoQuery, BaseResponse<GetUserInfoQueryViewModel>>
+    public class GetUserInfoQueryHandler : IRequestHandler<GetUserInfoQuery, BaseResponse<GetUserInfoQueryVM>>
     {
         private readonly IApplicationUserRepository _userRepository;
         private readonly IMapper _mapper;
@@ -26,14 +26,14 @@ namespace Application.Functions.Users.Queries.GetUserInfo
             _userRepository = applicationUserRepository;
         }
 
-        public async Task<BaseResponse<GetUserInfoQueryViewModel>> Handle(GetUserInfoQuery request, CancellationToken cancellationToken)
+        public async Task<BaseResponse<GetUserInfoQueryVM>> Handle(GetUserInfoQuery request, CancellationToken cancellationToken)
         {
             var user = await _userRepository.GetById(request.Id);
             
             if (user == null)
-                return new BaseResponse<GetUserInfoQueryViewModel>("Nie ma takiego użytkownika", false);
+                return new BaseResponse<GetUserInfoQueryVM>("Nie ma takiego użytkownika", false);
 
-            return (new BaseResponse<GetUserInfoQueryViewModel>(_mapper.Map<GetUserInfoQueryViewModel>(user)));
+            return (new BaseResponse<GetUserInfoQueryVM>(_mapper.Map<GetUserInfoQueryVM>(user)));
         }
     }
 }

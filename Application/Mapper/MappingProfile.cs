@@ -1,4 +1,5 @@
 ﻿using Application.Functions.Auth.Command.SignUp;
+using Application.Functions.Cars.Queries.GetCarsByModel;
 using Application.Functions.Users.Queries.GetUserInfo;
 using AutoMapper;
 using Domain.Entities;
@@ -17,8 +18,11 @@ namespace Application.Mapper
             CreateMap<PersonalData, PersonalDataInGetUserInfoQueryViewModel>();
             CreateMap<PersonalDataInSignUpCommand, PersonalData>();
             CreateMap<Employee,  EmployeeInGetUserInfoQueryViewModel>();
-            CreateMap<ApplicationUser, GetUserInfoQueryViewModel>();
+            CreateMap<ApplicationUser, GetUserInfoQueryVM>();
             CreateMap<SignUpCommand, ApplicationUser>();
+            CreateMap<GetCarsByModelQueryVM, Car>();
+            CreateMap<ModelInGetCarsByModelQueryVM, ModelOfCars>();
+                
         }
     }
 }

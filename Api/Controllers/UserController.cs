@@ -20,13 +20,13 @@ namespace Api.Controllers
 
         [Authorize]
         [HttpGet(Name = "GetUserInfo")]
-        public async Task<ActionResult<BaseResponse<GetUserInfoQueryViewModel>>> GetUserInfo()
+        public async Task<ActionResult> GetUserInfo()
         {
             string? idClaimValue = (HttpContext.User.Identity as ClaimsIdentity)?.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier)?.Value;
 
             return idClaimValue != null 
                 ? Ok(await _mediator.Send(new GetUserInfoQuery() { Id = Int32.Parse(idClaimValue) })) 
-                : BadRequest(new BaseResponse<GetUserInfoQueryViewModel>("Nie jesteś zalogowany", false));
+                : BadRequest(new BaseResponse<GetUserInfoQueryVM>("Nie jesteś zalogowany", false));
         }
     }
 }

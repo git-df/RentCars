@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Application.Functions.Users.Queries.GetUserInfo
 {
-    public class GetUserInfoQueryViewModel
+    public class GetUserInfoQueryVM
     {
         public int Id { get; set; }
         public string Email { get; set; } = string.Empty;
